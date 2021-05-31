@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<link rel="stylesheet" href="todo.css">
+		<link rel="shortcut icon" href="http://www.workflowmax.com/hubfs/6-things-to-do-list.png">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap" rel="stylesheet">
+		<title>To do list</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<div class="todolist">
+			<h1>To do list</h1>
+			<input type="text" name="todolist" class="todo" placeholder="Item" id="inField">
+			<button id="addItem">+</button>
+			<button id="clear">Clear list</button>
+			<ol id="toDoContainer"></ol>
+		</div>
+		<table class="help">
+			<tr><th colspan="2"> Help</th></tr>
+			<tr>
+				<th>+</th>
+				<td>Adds item</td>
+			</tr>
+			<tr>
+				<th>Clear list</th>
+				<td>Clears the list</td>
+			</tr>
+			<tr>
+				<th>Single click item</th>
+				<td>Crossline item</td>
+			</tr>
+			<tr>
+				<th>Double click item</th>
+				<td>Deletes the item</td>
+			</tr>
+			<td colspan="2">Do not use forbidden words :)</td>
+		</table>
+		<script src="todo.js"></script>
+	</body>
+</html>
