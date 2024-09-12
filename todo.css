@@ -6,7 +6,6 @@
 
 body{
 	background-color: grey;
-	font-family: 'Sigmar One', cursive;
 }
 
 .todolist{
@@ -21,15 +20,6 @@ body{
 	background-image: linear-gradient(to left, #cc00cc 10%, #004d99);
 }
 
-::placeholder{
-	font-family: 'Sigmar One', cursive;
-}
-
-::selection{
-	color: white;
-	background-color: brown;
-}
-
 button{
 	padding: 10px;
 	font-size: 20px;
@@ -37,7 +27,6 @@ button{
 	border-radius: 10px;
 	outline: none;
 	border: none;
-	font-family: 'Sigmar One', cursive;
 }
 
 button:hover{
@@ -68,40 +57,28 @@ h1{
 	cursor: pointer;
 }
 
-.help{
-	position: fixed;
-	top: 50px;
-	left: 50px;
-	opacity: 0.2;
-	transition: 0.5s;
-}
-
-span{
-	color: white;
-}
-
-.help > ul > li{
+ul > li{
 	list-style-type: none;
 }
 
 th{
 	color: pink;
-	text-shadow: 2px 2px 2px black;
+	text-shadow: 1px 1px 1px black;
 }
 
 td{
 	color: white;
-	text-shadow: 2px 2px 2px black;
+	text-shadow: 1px 1px 1px black;
 }
 
-.help:hover{
-	opacity: 1;
-	cursor: pointer;
+table{
+	position: absolute;
+	top: 10%;
+	left: 10%;
 }
 
 table, th, td{
-	border: 2px solid black;
-	font-family: 'Odibee Sans', cursive;
-	border-collapse: collapse; /*merges all borders into one border*/
+	border: 1px solid black;
+	border-collapse: collapse;
 	padding: 10px;
 }
