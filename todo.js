@@ -16,7 +16,7 @@ if (items.length) {
       ? paragraph.classList.add("line-through")
       : paragraph.classList.remove("line-through");
 
-    giveListeners(paragraph);
+    giveListeners(paragraph, x.id);
   }
 }
 
@@ -37,12 +37,13 @@ addButton.addEventListener("click", () => {
 
   toDoContainer.appendChild(paragraph);
   paragraph.innerText = inputValue;
+  paragraph.id = items.length;
   paragraph.classList.add("paragraph-style");
   inputField.value = "";
-  items.push({ item: inputValue, checked: true });
+  items.push({ id: paragraph.id, item: inputValue, checked: true });
   localStorage.setItem("items", JSON.stringify(items));
 
-  giveListeners(paragraph);
+  giveListeners(paragraph, paragraph.id);
 });
 
 clearButton.addEventListener("click", () => {
@@ -52,8 +53,9 @@ clearButton.addEventListener("click", () => {
   }
 });
 
-function giveListeners(paragraph) {
+function giveListeners(paragraph, id) {
   paragraph.addEventListener("click", () => {
+    console.log(id);
     paragraph.className.includes("line-through")
       ? paragraph.classList.remove("line-through")
       : paragraph.classList.add("line-through");
