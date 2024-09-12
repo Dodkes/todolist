@@ -1,84 +1,90 @@
-*{
-	box-sizing: border-box;
-	margin: 0;
-	vertical-align: middle; /*aligns rows so their height starts from middle*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  vertical-align: middle;
 }
 
-body{
-	background-color: grey;
+body {
+  background-color: rgba(0, 0, 0, 0.723);
 }
 
-.todolist{
-	border border-radius: 20px;
-	border: 2px solid black;
-	align-items: center;
-	width: 25%;
-	padding: 30px;
-	border-radius: 40px;
-	margin: auto; /*margins div horizontally to center*/
-	margin-top: 20px;
-	background-image: linear-gradient(to left, #cc00cc 10%, #004d99);
+.container {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  border: 1px solid black;
+  max-width: 40%;
+  padding: 30px;
+  border-radius: 10px;
+  margin-top: 20px;
+  background-image: linear-gradient(to left, #cc00cc 10%, #004d99);
+  box-shadow: 1px 1px 10px black;
 }
 
-button{
-	padding: 10px;
-	font-size: 20px;
-	background-color: rgba(255, 255, 255, 0.2);
-	border-radius: 10px;
-	outline: none;
-	border: none;
+.controlPanel {
+  text-align: center;
 }
 
-button:hover{
-	background-color: rgba(255, 255, 255, 1);
-	cursor: pointer;
+button {
+  background-color: rgba(255, 255, 255, 0.4);
+  outline: none;
+  border: none;
+  padding: 10px;
 }
 
-button:active{
-	background-color: rgba(0, 102, 255, 0.2);;
-	
+button:hover {
+  background-color: rgba(255, 255, 255, 1);
+  cursor: pointer;
 }
 
-.todo{
-	padding: 10px;
-	border-radius: 10px;
-	border: none;
-	outline: none;
+button:active {
+  background-color: rgba(0, 102, 255, 0.2);
 }
 
-h1{
-	text-align: center;
-	padding-bottom: 10px;
+.todoInput {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
 }
 
-.paragraph-style{ /*Paragraph styling is used later in javascript paragraph.classList.add('paragraph-style');*/
-	color: white;
-	text-shadow: 2px 2px 2px black;
-	cursor: pointer;
+h1 {
+  text-align: center;
+  padding-bottom: 10px;
 }
 
-ul > li{
-	list-style-type: none;
+.toDoContainer {
+  display: none;
 }
 
-th{
-	color: pink;
-	text-shadow: 1px 1px 1px black;
+.paragraph-style {
+  color: white;
+  font-size: larger;
+  text-shadow: 1px 1px 1px black;
+  cursor: pointer;
+  padding: 5px;
 }
 
-td{
-	color: white;
-	text-shadow: 1px 1px 1px black;
+th {
+  color: pink;
+  text-shadow: 1px 1px 1px black;
 }
 
-table{
-	position: absolute;
-	top: 10%;
-	left: 10%;
+td {
+  color: white;
+  text-shadow: 1px 1px 1px black;
 }
 
-table, th, td{
-	border: 1px solid black;
-	border-collapse: collapse;
-	padding: 10px;
+table {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 10px;
 }
