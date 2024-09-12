@@ -12,10 +12,7 @@ if (items.length) {
     paragraph.innerText = x.item;
     paragraph.classList.add("paragraph-style");
 
-    x.checked
-      ? paragraph.classList.add("line-through")
-      : paragraph.classList.remove("line-through");
-
+    x.class && paragraph.classList.add(x.class);
     giveListeners(paragraph, x.id);
   }
 }
@@ -40,7 +37,7 @@ addButton.addEventListener("click", () => {
   paragraph.id = items.length;
   paragraph.classList.add("paragraph-style");
   inputField.value = "";
-  items.push({ id: paragraph.id, item: inputValue, checked: true });
+  items.push({ id: paragraph.id, item: inputValue, class: "" });
   localStorage.setItem("items", JSON.stringify(items));
 
   giveListeners(paragraph, paragraph.id);
@@ -55,12 +52,20 @@ clearButton.addEventListener("click", () => {
 
 function giveListeners(paragraph, id) {
   paragraph.addEventListener("click", () => {
-    paragraph.className.includes("line-through")
-      ? paragraph.classList.remove("line-through")
-      : paragraph.classList.add("line-through");
+    const index = items.findIndex((item) => item.id === id);
+
+    if (paragraph.className.includes("line-through")) {
+      paragraph.classList.remove("line-through");
+      items[index].class = "";
+    } else {
+      paragraph.classList.add("line-through");
+      items[index].class = "line-through";
+    }
+    localStorage.setItem("items", JSON.stringify(items));
   });
 
   paragraph.addEventListener("dblclick", () => {
+    console.log(id);
     toDoContainer.removeChild(paragraph);
     const index = items.findIndex((item) => item.id === id);
     items.splice(index, 1);
