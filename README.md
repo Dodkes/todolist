@@ -1,13 +1,10 @@
-# My very first js project
-Beginner project just for practice my js skill.
+# To-Do-List
+My 1st project created 2021, updated 2024.
 
-Easy to use: all needed info is shown aside the "to do list" when using.
+Control table: Shows how to use list.
 
 <ol>
-<li>+ button > adds item</li>
-<li>clear item button > clears list</li>
-<li>sigle click > crossline item</li>
-<li>double click > delete item</li>
+<li>Control panel: shows user how to use list.</li>
+<li>Prohibited words.</li>
+<li>Uses local storqage for storing data.</li>
 </ol>
-
-Some offensive words are forbidden.
