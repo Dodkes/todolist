@@ -1,34 +1,30 @@
-let toDoButton = document.getElementById("addItem"); //gets button
-let toDoContainer = document.getElementById("toDoContainer"); //gets container
-let inField = document.getElementById("input-field"); //gets input element
+let toDoButton = document.getElementById("addItem");
+let toDoContainer = document.getElementById("toDoContainer");
+let inField = document.getElementById("input-field");
 
 toDoButton.addEventListener("click", function () {
-  //used variable for click event
-  var paragraph = document.createElement("li"); //create element <li>
-  var inputValue = document.getElementById("input-field").value; //gets the input value
+  var paragraph = document.createElement("li");
+  var inputValue = document.getElementById("input-field").value;
   if (
     inputValue !== "" &&
     inputValue !== "dick" &&
     inputValue !== "fuck" &&
     inputValue !== "bitch"
   ) {
-    toDoContainer.appendChild(paragraph); //adds child paragraph to toDoContainer
-    paragraph.innerText = inputValue; //adds inputValue to <li>
-    paragraph.classList.add("paragraph-style"); //add styling for <p> from css ext document
-    inField.value = ""; //resets input field after click
+    toDoContainer.appendChild(paragraph);
+    paragraph.innerText = inputValue;
+    paragraph.classList.add("paragraph-style");
+    inField.value = "";
   } else if (
     inputValue == "dick" ||
     inputValue == "fuck" ||
     inputValue == "bitch"
   ) {
-    //if forbidden words
     alert("Cooldown you" + " " + inputValue + " :)");
   } else {
-    //if no value entered
     alert("Please enter a value");
   }
 
-  //onclick <li> line through and restore on next click
   var clicked = 0;
   paragraph.addEventListener("click", function () {
     if (clicked == 0) {
@@ -43,10 +39,9 @@ toDoButton.addEventListener("click", function () {
     }
   });
   paragraph.addEventListener("dblclick", function () {
-    toDoContainer.removeChild(paragraph); // from container delete <li> on double click
+    toDoContainer.removeChild(paragraph);
   });
 
-  //CLEAR BUTTON
   let clearButton = document.getElementById("clear");
 
   clearButton.addEventListener("click", function () {
