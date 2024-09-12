@@ -21,7 +21,7 @@ body {
   box-shadow: 1px 1px 10px black;
 }
 
-.controlPanel {
+.control-panel {
   text-align: center;
 }
 
@@ -41,7 +41,7 @@ button:active {
   background-color: rgba(0, 102, 255, 0.2);
 }
 
-.todoInput {
+#input-field {
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -51,10 +51,6 @@ button:active {
 h1 {
   text-align: center;
   padding-bottom: 10px;
-}
-
-.toDoContainer {
-  display: none;
 }
 
 .paragraph-style {
@@ -77,8 +73,8 @@ td {
 
 table {
   position: absolute;
-  top: 10%;
-  left: 10%;
+  left: 2%;
+  top: 2%;
 }
 
 table,
@@ -87,4 +83,10 @@ td {
   border: 1px solid black;
   border-collapse: collapse;
   padding: 10px;
+}
+
+.line-through {
+  text-decoration: line-through;
+  text-decoration-color: red;
+  text-decoration-thickness: 10%;
 }

@@ -1,48 +1,38 @@
-let toDoButton = document.getElementById("addItem");
-let toDoContainer = document.getElementById("toDoContainer");
-let inField = document.getElementById("input-field");
+const addButton = document.getElementById("button-add-item");
+const clearButton = document.getElementById("clear");
+const toDoContainer = document.getElementById("todo-container");
+const inputField = document.getElementById("input-field");
+const bannedWords = ["dick", "bitch", "fuck", "cunt"];
 
-toDoButton.addEventListener("click", function () {
-  var paragraph = document.createElement("li");
-  var inputValue = document.getElementById("input-field").value;
-  if (
-    inputValue !== "" &&
-    inputValue !== "dick" &&
-    inputValue !== "fuck" &&
-    inputValue !== "bitch"
-  ) {
-    toDoContainer.appendChild(paragraph);
-    paragraph.innerText = inputValue;
-    paragraph.classList.add("paragraph-style");
-    inField.value = "";
-  } else if (
-    inputValue == "dick" ||
-    inputValue == "fuck" ||
-    inputValue == "bitch"
-  ) {
-    alert("Cooldown you" + " " + inputValue + " :)");
-  } else {
-    alert("Please enter a value");
+addButton.addEventListener("click", () => {
+  const paragraph = document.createElement("li");
+  const inputValue = document.getElementById("input-field").value;
+  const inputToLowerCase = inputValue.toLowerCase();
+
+  for (let word of bannedWords) {
+    if (inputToLowerCase.includes(word.toLowerCase())) {
+      return throwError("Banned word");
+    }
   }
 
-  var clicked = 0;
-  paragraph.addEventListener("click", function () {
-    if (clicked == 0) {
-      paragraph.style.textDecoration = "line-through";
-      paragraph.style.textDecorationColor = "red";
-      paragraph.style.textDecorationThickness = "15%";
+  if (inputValue.length === 0) {
+    return throwError("Please enter a value");
+  }
 
-      clicked = 1;
-    } else {
-      paragraph.style.textDecoration = "none";
-      clicked = 0;
-    }
+  toDoContainer.appendChild(paragraph);
+  paragraph.innerText = inputValue;
+  paragraph.classList.add("paragraph-style");
+  inputField.value = "";
+
+  paragraph.addEventListener("click", function () {
+    paragraph.className.includes("line-through")
+      ? paragraph.classList.remove("line-through")
+      : paragraph.classList.add("line-through");
   });
+
   paragraph.addEventListener("dblclick", function () {
     toDoContainer.removeChild(paragraph);
   });
-
-  let clearButton = document.getElementById("clear");
 
   clearButton.addEventListener("click", function () {
     while (toDoContainer.firstChild) {
@@ -52,5 +42,9 @@ toDoButton.addEventListener("click", function () {
 });
 
 document.addEventListener("keydown", (event) => {
-  event.key === "Enter" && toDoButton.click();
+  event.key === "Enter" && addButton.click();
 });
+
+function throwError(message) {
+  alert(message);
+}
