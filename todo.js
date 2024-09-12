@@ -55,7 +55,6 @@ clearButton.addEventListener("click", () => {
 
 function giveListeners(paragraph, id) {
   paragraph.addEventListener("click", () => {
-    console.log(id);
     paragraph.className.includes("line-through")
       ? paragraph.classList.remove("line-through")
       : paragraph.classList.add("line-through");
@@ -63,6 +62,9 @@ function giveListeners(paragraph, id) {
 
   paragraph.addEventListener("dblclick", () => {
     toDoContainer.removeChild(paragraph);
+    const index = items.findIndex((item) => item.id === id);
+    items.splice(index, 1);
+    localStorage.setItem("items", JSON.stringify(items));
   });
 }
 
