@@ -28,6 +28,7 @@ body {
 
 button {
   background-color: rgba(255, 255, 255, 0.4);
+  color: black;
   outline: none;
   border: none;
   padding: 10px;
